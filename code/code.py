@@ -8,17 +8,9 @@ from xblock.fragment import Fragment
 
 
 class CodeXBlock(XBlock):
-    """
-    TO-DO: document what your XBlock does.
-    """
-
-    # Fields are defined on the class.  You can access them in your code as
-    # self.<fieldname>.
-
-    # TO-DO: delete count, and define your own fields.
-    count = Integer(
+    code = String(
         default=0, scope=Scope.user_state,
-        help="A simple counter, to show something happening",
+        help="The field stores user code",
     )
 
     def resource_string(self, path):
@@ -26,7 +18,6 @@ class CodeXBlock(XBlock):
         data = pkg_resources.resource_string(__name__, path)
         return data.decode("utf8")
 
-    # TO-DO: change this view to display your data your own way.
     def student_view(self, context=None):
         """
         The primary view of the CodeXBlock, shown to students

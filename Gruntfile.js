@@ -7,10 +7,15 @@ module.exports = function(grunt) {
   var directoryPrivate = directoryPackage + '/private';
   var directoryCodeMirror = directoryPackage + '/codemirror';
   var directoryPublic = directoryPackage + '/public';
-  var directoryPrivateJsAll = directoryPrivate + '/**/*.js';
-  var directoryPrivateLessAll = directoryPrivate + '/**/*.less';
-  var directoryPrivateHtmlAll = directoryPrivate + '/**/*.html';
-  var directoryPublicCssAll = directoryPublic + '/**/*.css';
+  var directoryPrivateJs = directoryPrivate + '/js';
+  var directoryPrivateCss = directoryPrivate + '/css';
+  var directoryPrivateJsAll = directoryPrivateJs + '/js';
+  var directoryPrivateLessAll = directoryPrivate + '/css/**/*.less';
+  var directoryPrivateHtmlAll = directoryPrivate + '/html/**/*.html';
+  var directoryPublicJs = directoryPublic + '/js';
+  var directoryPublicCss = directoryPublic + '/css';
+  var directoryPublicCodeMirror = directoryPublic + '/codemirror';
+  var directoryPublicCssAll = directoryPublicCss + '/**/*.css';
 
   grunt.initConfig({
     pkg : grunt.file.readJSON('package.json'),
@@ -22,35 +27,47 @@ module.exports = function(grunt) {
       options : {
         separator : ';\n',
       },
-      jsView : {
+      jsStudent : {
         src : [
-          directoryPrivate + '/view.js',
+          directoryPrivateJs + '/student.js',
         ],
-        dest : directoryPublic + '/view.js',
+        dest : directoryPublicJs + '/student.js',
       },
-      jsEdit : {
+      jsStudio : {
         src : [
-          directoryPrivate + '/edit.js',
+          directoryPrivateJs + '/studio.js',
         ],
-        dest : directoryPublic + '/edit.js',
+        dest : directoryPublicJs + '/studio.js',
+      },
+      jsWorkbench : {
+        src : [
+          directoryPrivateJs + '/workbench.js',
+        ],
+        dest : directoryPublicJs + '/workbench.js',
       },
       cssCodeMirror : {
         src : [
           directoryCodeMirror + '/codemirror.css',
         ],
-        dest : directoryPublic + '/codemirror/codemirror.css',
+        dest : directoryPublicCodeMirror + '/codemirror.css',
       },
-      cssView : {
+      cssStudent : {
         src : [
-          directoryPrivate + '/view.less',
+          directoryPrivateCss + '/student_view.less',
         ],
-        dest : directoryPublic + '/view.less',
+        dest : directoryPublicCss + '/student_view.less',
       },
-      cssEdit : {
+      cssStudio : {
         src : [
-          directoryPrivate + '/edit.less',
+          directoryPrivateCss + '/studio_view.less',
         ],
-        dest : directoryPublic + '/edit.less',
+        dest : directoryPublicCss + '/studio_view.less',
+      },
+      cssWorkbench : {
+        src : [
+          directoryPrivateCss + '/workbench_view.less',
+        ],
+        dest : directoryPublicCss + '/workbench_view.less',
       },
     },
     copy : {
@@ -63,7 +80,7 @@ module.exports = function(grunt) {
               directoryPrivate + '/**/*.png',
               directoryPrivate + '/**/*.gif',
             ],
-            dest : directoryPublic + '/',
+            dest : directoryPublic + '/assets',
           },
         ],
       },
@@ -81,12 +98,12 @@ module.exports = function(grunt) {
           {
             footer : '\n',
             expand : true,
-            cwd : directoryPublic,
+            cwd : directoryPublicCss,
             src : [
               '*.css',
               '!*.min.css',
             ],
-            dest : directoryPublic,
+            dest : directoryPrivateCss,
             ext : '.min.css',
           }
         ],
@@ -104,9 +121,11 @@ module.exports = function(grunt) {
         },
         files : {
           'code/public/student_view.html' :
-              directoryPrivate + '/student_view.html',
+              directoryPrivate + '/html/student_view.html',
           'code/public/studio_view.html' :
-              directoryPrivate + '/studio_view.html',
+              directoryPrivate + '/html/studio_view.html',
+          'code/public/workbench_view.html' :
+              directoryPrivate + '/html/workbench_view.html',
         },
       },
     },
@@ -120,29 +139,32 @@ module.exports = function(grunt) {
       ],
     },
     less : {
-      view : {
+      student : {
         options : {
           sourceMap : true,
-          sourceMapFilename : 'code/public/view.less.min.css.map',
+          sourceMapFilename :
+              directoryPublicCss + 'student_view.less.min.css.map',
           outputSourceFiles : true,
           cleancss : true,
           compress : true,
         },
         files : {
-          'code/public/view.less.min.css' : directoryPublic + '/view.less',
+          'code/public/css/student_view.less.min.css' :
+              directoryPublicCss + '/student_view.less',
         },
       },
-      edit : {
+      studio : {
         options : {
           sourceMap : true,
-          sourceMapFilename : 'code/public/student_view.less.min.css.map',
+          sourceMapFilename :
+              directoryPublicCss + 'studio_view.less.min.css.map',
           outputSourceFiles : true,
           cleancss : true,
           compress : true,
         },
         files : {
-          'code/public/student_view.less.min.css' :
-              directoryPublic + '/student_view.less',
+          'code/public/css/studio_view.less.min.css' :
+              directoryPublicCss + '/studio_view.less',
         },
       },
     },
@@ -157,7 +179,7 @@ module.exports = function(grunt) {
             expand : true,
             cwd : directoryCodeMirror + '/keymap',
             src : '*.js',
-            dest : directoryPublic + '/codemirror/keymap',
+            dest : directoryPublicCodeMirror + '/keymap',
             ext : '.js.min.js',
           }
         ],
@@ -168,7 +190,7 @@ module.exports = function(grunt) {
             expand : true,
             cwd : directoryCodeMirror + '/mode/',
             src : [ '**/*.js' ],
-            dest : directoryPublic + '/codemirror/modes',
+            dest : directoryPublicCodeMirror + '/modes',
             ext : '.js.min.js',
             flatten : true,
           }
@@ -178,7 +200,7 @@ module.exports = function(grunt) {
         files : [
           {
             expand : true,
-            dest : directoryPublic + '/codemirror',
+            dest : directoryPublicCodeMirror,
             cwd : directoryCodeMirror + '/',
             src : [
               'codemirror.js',
@@ -203,12 +225,12 @@ module.exports = function(grunt) {
         files : [
           {
             expand : true,
-            cwd : directoryPublic + '/',
+            cwd : directoryPublicJs + '/',
             src : [
               '*.js',
               '!*.min.js',
             ],
-            dest : directoryPublic + '/',
+            dest : directoryPublicJs,
             ext : '.js.min.js',
           }
         ],
