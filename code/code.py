@@ -1,131 +1,69 @@
-"""
-This is the core logic for the CodeXBlock
-"""
-import os
+"""TO-DO: Write a description of what this XBlock is."""
 
 import pkg_resources
 
 from xblock.core import XBlock
-from xblock.fields import Scope
-from xblock.fields import String
+from xblock.fields import Scope, Integer
 from xblock.fragment import Fragment
 
 
-class Code(XBlock):
+class CodeXBlock(XBlock):
     """
-    Source code text area xblock
+    TO-DO: document what your XBlock does.
     """
 
-    @staticmethod
-    def workbench_scenarios():
-        """
-        Gather scenarios to be displayed in the workbench
-        """
-        return [
-            ('CodeXBlock',
-             """<sequence_demo>
-                    <code />
-                    <code name="My First XBlock" />
-                </sequence_demo>
-             """),
-        ]
+    # Fields are defined on the class.  You can access them in your code as
+    # self.<fieldname>.
 
-    name = String(
-        default='CodeXBlock',
-        scope=Scope.settings,
-        help="This is the XBlock's name",
+    # TO-DO: delete count, and define your own fields.
+    count = Integer(
+        default=0, scope=Scope.user_state,
+        help="A simple counter, to show something happening",
     )
 
+    def resource_string(self, path):
+        """Handy helper for getting resources from our kit."""
+        data = pkg_resources.resource_string(__name__, path)
+        return data.decode("utf8")
+
+    # TO-DO: change this view to display your data your own way.
     def student_view(self, context=None):
         """
-        Build the fragment for the default student view
+        The primary view of the CodeXBlock, shown to students
+        when viewing courses.
         """
-        fragment = self.build_fragment(
-            path_html='view.html',
-            paths_css=[
-                'view.less.min.css',
-            ],
-            paths_js=[
-                'view.js.min.js',
-            ],
-            fragment_js='CodeView',
-        )
-        return fragment
+        html = self.resource_string("static/html/code.html")
+        frag = Fragment(html.format(self=self))
+        frag.add_css(self.resource_string("static/css/code.css"))
+        frag.add_javascript(self.resource_string("static/js/src/student.js"))
+        frag.add_javascript(self.resource_string("static/js/src/code.js"))
+        frag.initialize_js('CodeXBlock')
+        return frag
 
-    def studio_view(self, context=None):
-        """
-        Build the fragment for the edit/studio view
-
-        Implementation is optional.
-        """
-        fragment = self.build_fragment(
-            path_html='edit.html',
-            paths_css=[
-                'edit.less.min.css',
-            ],
-            paths_js=[
-                'edit.js.min.js',
-            ],
-            fragment_js='CodeEdit',
-        )
-        return fragment
-
+    # TO-DO: change this handler to perform your own actions.  You may need more
+    # than one handler, or you may not need any handlers at all.
     @XBlock.json_handler
-    def studio_view_save(self, data, suffix=''):
+    def increment_count(self, data, suffix=''):
         """
-        Save XBlock fields
+        An example handler, which increments the data.
+        """
+        # Just to show data coming in...
+        assert data['hello'] == 'world'
 
-        Returns: the new field values
-        """
+        self.count += 1
+        return {"count": self.count}
 
-        # TODO: Add an entry here for each field.
-        self.name = data['name']
-        return {
-            'name': self.name,
-        }
-
-    def get_resource_string(self, path):
-        """
-        Retrieve string contents for the file path
-        """
-        path = os.path.join('public', path)
-        resource_string = pkg_resources.resource_string(__name__, path)
-        return resource_string.decode('utf8')
-
-    def get_resource_url(self, path):
-        """
-        Retrieve a public URL for the file path
-        """
-        path = os.path.join('public', path)
-        resource_url = self.runtime.local_resource_url(self, path)
-        return resource_url
-
-    def build_fragment(self,
-        path_html='',
-        paths_css=[],
-        paths_js=[],
-        urls_css=[],
-        urls_js=[],
-        fragment_js=None,
-    ):
-        """
-        Assemble the HTML, JS, and CSS for an XBlock fragment
-        """
-        html_source = self.get_resource_string(path_html)
-        html_source = html_source.format(
-            self=self,
-        )
-        fragment = Fragment(html_source)
-        for url in urls_css:
-            fragment.add_css_url(url)
-        for path in paths_css:
-            url = self.get_resource_url(path)
-            fragment.add_css_url(url)
-        for url in urls_js:
-            fragment.add_javascript_url(url)
-        for path in paths_js:
-            url = self.get_resource_url(path)
-            fragment.add_javascript_url(url)
-        if fragment_js:
-            fragment.initialize_js(fragment_js)
-        return fragment
+    # TO-DO: change this to create the scenarios you'd like to see in the
+    # workbench while developing your XBlock.
+    @staticmethod
+    def workbench_scenarios():
+        """A canned scenario for display in the workbench."""
+        return [
+            ("CodeXBlock",
+             """<vertical_demo>
+                <code/>
+                <code/>
+                <code/>
+                </vertical_demo>
+             """),
+        ]

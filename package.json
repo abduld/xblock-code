@@ -18,6 +18,9 @@
   "scripts": {
     "test": "grunt --verbose"
   },
+  "dependencies": {
+    "codemirror": "~4.7.0"
+  },
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-jshint": "^0.10.0",

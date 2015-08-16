@@ -1,19 +1,29 @@
-import json
-import setuptools
+"""Setup for code XBlock."""
+
+import os
+from setuptools import setup
 
 
-package_json_file = open('package.json', 'r')
-package_json = json.load(package_json_file)
+def package_data(pkg, roots):
+    """Generic function to find package_data.
 
-setuptools.setup(
-    name=package_json.get('name', 'xblock-test'),
-    version=package_json.get('version', '0.1.0'),
-    description=package_json.get('description'),
-    long_description=package_json.get('description'),
-    author=package_json.get('author', {}).get('name'),
-    author_email=package_json.get('author', {}).get('email'),
-    url=package_json.get('homepage'),
-    license='AGPL-3.0',
+    All of the files under each of the `roots` will be declared as package
+    data for package `pkg`.
+
+    """
+    data = []
+    for root in roots:
+        for dirname, _, files in os.walk(os.path.join(pkg, root)):
+            for fname in files:
+                data.append(os.path.relpath(os.path.join(dirname, fname), pkg))
+
+    return {pkg: data}
+
+
+setup(
+    name='code-xblock',
+    version='0.1',
+    description='code XBlock',   # TODO: write a better description.
     packages=[
         'code',
     ],
@@ -22,26 +32,8 @@ setuptools.setup(
     ],
     entry_points={
         'xblock.v1': [
-            'code = code:Code',
-        ],
+            'code = code:CodeXBlock',
+        ]
     },
-    package_dir={
-        'code': 'code',
-    },
-    package_data={
-        "code": [
-            'public/*',
-        ],
-    },
-    classifiers=[
-        # https://pypi.python.org/pypi?%3Aaction=list_classifiers
-        'Intended Audience :: Developers',
-        'Intended Audience :: Education',
-        'License :: OSI Approved :: GNU Affero General Public License v3',
-        'Operating System :: OS Independent',
-        'Programming Language :: JavaScript',
-        'Programming Language :: Python',
-        'Topic :: Education',
-        'Topic :: Internet :: WWW/HTTP',
-    ],
+    package_data=package_data("code", ["static", "public"]),
 )
