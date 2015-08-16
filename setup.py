@@ -21,19 +21,19 @@ def package_data(pkg, roots):
 
 
 setup(
-    name='code-xblock',
+    name='codearea-xblock',
     version='0.1',
-    description='code XBlock',   # TODO: write a better description.
+    description='code area XBlock',   # TODO: write a better description.
     packages=[
-        'code',
+        'codearea',
     ],
     install_requires=[
         'XBlock',
     ],
     entry_points={
         'xblock.v1': [
-            'code = code:CodeXBlock',
+            'codearea = codearea:CodeXBlock',
         ]
     },
-    package_data=package_data("code", ["static", "public"]),
+    package_data=package_data("codearea", ["static", "public"]),
 )

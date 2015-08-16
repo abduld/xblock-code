@@ -3,15 +3,16 @@ module.exports = function(grunt) {
 
   var jshintrc = '.jshintrc';
   var gruntFile = 'Gruntfile.js';
-  var directoryPackage = './code';
+  var directoryPackage = './codearea';
   var directoryPrivate = directoryPackage + '/private';
   var directoryCodeMirror = directoryPackage + '/codemirror';
   var directoryPublic = directoryPackage + '/public';
   var directoryPrivateJs = directoryPrivate + '/js';
   var directoryPrivateCss = directoryPrivate + '/css';
-  var directoryPrivateJsAll = directoryPrivateJs + '/js';
-  var directoryPrivateLessAll = directoryPrivate + '/css/**/*.less';
-  var directoryPrivateHtmlAll = directoryPrivate + '/html/**/*.html';
+  var directoryPrivateHtml = directoryPrivate + '/html';
+  var directoryPrivateJsAll = directoryPrivateJs + '/**/*.js';
+  var directoryPrivateLessAll = directoryPrivateCss + '/**/*.less';
+  var directoryPrivateHtmlAll = directoryPrivateHtml + '/**/*.html';
   var directoryPublicJs = directoryPublic + '/js';
   var directoryPublicCss = directoryPublic + '/css';
   var directoryPublicCodeMirror = directoryPublic + '/codemirror';
@@ -26,6 +27,12 @@ module.exports = function(grunt) {
     concat : {
       options : {
         separator : ';\n',
+      },
+      jsCode : {
+        src : [
+          directoryPrivateJs + '/code.js',
+        ],
+        dest : directoryPublicJs + '/code.js',
       },
       jsStudent : {
         src : [
@@ -120,11 +127,11 @@ module.exports = function(grunt) {
           removeEmptyAttributes : true,
         },
         files : {
-          'code/public/student_view.html' :
+          'codearea/public/student_view.html' :
               directoryPrivate + '/html/student_view.html',
-          'code/public/studio_view.html' :
+          'codearea/public/studio_view.html' :
               directoryPrivate + '/html/studio_view.html',
-          'code/public/workbench_view.html' :
+          'codearea/public/workbench_view.html' :
               directoryPrivate + '/html/workbench_view.html',
         },
       },
@@ -149,7 +156,7 @@ module.exports = function(grunt) {
           compress : true,
         },
         files : {
-          'code/public/css/student_view.less.min.css' :
+          'codearea/public/css/student_view.less.min.css' :
               directoryPublicCss + '/student_view.less',
         },
       },
@@ -163,7 +170,7 @@ module.exports = function(grunt) {
           compress : true,
         },
         files : {
-          'code/public/css/studio_view.less.min.css' :
+          'codearea/public/css/studio_view.less.min.css' :
               directoryPublicCss + '/studio_view.less',
         },
       },
@@ -173,6 +180,7 @@ module.exports = function(grunt) {
         footer : '\n',
         sourceMap : true,
       },
+
       keymaps : {
         files : [
           {
@@ -217,7 +225,7 @@ module.exports = function(grunt) {
               'addon/scroll/annotatescrollbar.js',
               'addon/scroll/simplescrollbars.js',
             ],
-            ext : 'js.min.js'
+            ext : '.js.min.js'
           }
         ]
       },
@@ -241,6 +249,7 @@ module.exports = function(grunt) {
         files : [
           jshintrc,
           gruntFile,
+          directoryPackage + '/code.py',
           directoryPrivateJsAll,
           directoryPrivateLessAll,
           directoryPrivateHtmlAll,
@@ -269,10 +278,12 @@ module.exports = function(grunt) {
     'copy',
     'less',
     'csslint',
+    /*
     'uglify:modes',
     'uglify:scripts',
     'uglify:keymaps',
-    'uglify',
+    */
+    'uglify:combine',
     'htmlmin',
   ]);
 };

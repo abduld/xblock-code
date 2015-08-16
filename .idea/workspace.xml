@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bbc2d11d-30e2-4ec6-b0f0-94da8d2e8d63" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/xcudacode.iml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/code.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/comment/comment.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/comment/continuecomment.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/dialog/dialog.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/dialog/dialog.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/display/fullscreen.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/display/fullscreen.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/display/panel.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/display/placeholder.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/display/rulers.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/edit/closebrackets.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/edit/closetag.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/edit/continuelist.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/edit/matchbrackets.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/edit/matchtags.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/edit/trailingspace.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/fold/brace-fold.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/fold/comment-fold.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/fold/foldcode.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/fold/foldgutter.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/fold/foldgutter.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/fold/indent-fold.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/fold/markdown-fold.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/fold/xml-fold.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/hint/anyword-hint.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/hint/css-hint.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/hint/html-hint.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/hint/javascript-hint.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/hint/show-hint.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/hint/show-hint.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/hint/sql-hint.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/hint/xml-hint.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/lint/coffeescript-lint.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/lint/css-lint.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/lint/javascript-lint.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/lint/json-lint.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/lint/lint.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/lint/lint.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/lint/yaml-lint.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/merge/merge.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/merge/merge.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/mode/loadmode.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/mode/multiplex.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/mode/multiplex_test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/mode/overlay.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/mode/simple.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/runmode/colorize.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/runmode/runmode-standalone.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/runmode/runmode.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/runmode/runmode.node.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/scroll/annotatescrollbar.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/scroll/scrollpastend.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/scroll/simplescrollbars.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/scroll/simplescrollbars.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/search/match-highlighter.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/search/matchesonscrollbar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/search/matchesonscrollbar.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/search/search.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/search/searchcursor.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/selection/active-line.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/selection/mark-selection.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/selection/selection-pointer.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/tern/tern.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/tern/tern.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/tern/worker.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/addon/wrap/hardwrap.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/codemirror.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/codemirror.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/keymap/emacs.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/keymap/sublime.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/keymap/vim.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/mode/clike/clike.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/mode/markdown/markdown.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/3024-day.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/3024-night.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/abcdef.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/ambiance-mobile.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/ambiance.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/base16-dark.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/base16-light.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/blackboard.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/cobalt.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/colorforth.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/dracula.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/eclipse.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/elegant.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/erlang-dark.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/icecoder.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/lesser-dark.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/liquibyte.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/material.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/mbo.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/mdn-like.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/midnight.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/monokai.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/neat.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/neo.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/night.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/paraiso-dark.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/paraiso-light.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/pastel-on-dark.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/rubyblue.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/seti.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/solarized.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/the-matrix.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/tomorrow-night-bright.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/tomorrow-night-eighties.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/ttcn.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/twilight.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/vibrant-ink.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/xq-dark.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/xq-light.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/yeti.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/codemirror/theme/zenburn.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/private/README.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/private/css/code.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/private/css/student_view.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/private/css/studio_view.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/private/css/workbench_view.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/private/html/code.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/private/html/student_view.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/private/html/studio_view.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/private/html/workbench_view.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/private/js/src/code.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/private/js/student.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/private/js/studio.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/code/private/js/workbench.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruntfile.js" afterPath="$PROJECT_DIR$/Gruntfile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup.py" afterPath="$PROJECT_DIR$/setup.py" />
+    </list>
+    <ignored path="xcudacode.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="xcudacode" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="codearea.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/codearea/codearea.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1605">
+              <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="student_view.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/codearea/private/html/student_view.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.042775664" vertical-offset="0" max-vertical-offset="1052">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="code.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/codearea/private/js/code.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="student.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/codearea/private/js/student.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
+              <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/codearea/private/js/code.js" />
+        <option value="$PROJECT_DIR$/codearea/private/html/student_view.html" />
+        <option value="$PROJECT_DIR$/codearea/private/js/student.js" />
+        <option value="$PROJECT_DIR$/codearea/codearea.py" />
+      </list>
+    </option>
+  </component>
+  <component name="JsGruntFileManager">
+    <gruntfiles>
+      <GruntfileState>
+        <gruntfile-path>$PROJECT_DIR$/Gruntfile.js</gruntfile-path>
+      </GruntfileState>
+    </gruntfiles>
+    <initial>false</initial>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1920" />
+    <option name="height" value="1173" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xcudacode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xcudacode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xcudacode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xcudacode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xcudacode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="codearea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xcudacode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xcudacode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="codearea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="private" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xcudacode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xcudacode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="codearea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="private" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xcudacode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xcudacode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="codearea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="private" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="html" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="xcudacode" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="xcudacode" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="testToRun" value="" />
+      <option name="keywords" value="" />
+      <option name="params" value="" />
+      <option name="USE_PARAM" value="false" />
+      <option name="USE_KEYWORD" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="xcudacode" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="xcudacode" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="xcudacode" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="xcudacode" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="xcudacode" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="xcudacode" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Attests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="xcudacode" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bbc2d11d-30e2-4ec6-b0f0-94da8d2e8d63" name="Default" comment="" />
+      <created>1439767088813</created>
+      <option name="number" value="Default" />
+      <updated>1439767088813</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1920" height="1173" extended-state="0" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Grunt" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18229167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/codearea/private/js/student.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
+          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codearea/private/js/code.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1076">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codearea/codearea.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1605">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codearea/private/html/student_view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.042775664" vertical-offset="0" max-vertical-offset="1052">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
