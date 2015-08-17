@@ -24,7 +24,7 @@ function CodeXBlock(runtime, element, data) {
         indentWithTabs: true,
         readOnly: readOnly,
         theme: 'eclipse',
-        mode: 'text/x-c++src',
+        mode: 'text/x-cuda-src',
         matchBrackets: true,
         extraKeys: {
           'Ctrl-Space': 'autocomplete'
@@ -37,6 +37,5 @@ function CodeXBlock(runtime, element, data) {
 
     $('.save-code').click(save_code);
 
-      save_code();
   });
 }

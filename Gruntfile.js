@@ -28,6 +28,12 @@ module.exports = function(grunt) {
       options : {
         separator : ';\n',
       },
+      jsCudaMode : {
+        src : [
+          directoryPrivateJs + '/cuda-mode.js',
+        ],
+        dest : directoryPublicJs + '/cuda-mode.js',
+      },
       jsCode : {
         src : [
           directoryPrivateJs + '/code.js',
