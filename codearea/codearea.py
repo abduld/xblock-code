@@ -2,7 +2,7 @@ import logging
 import pkg_resources
 import json
 from xblock.core import XBlock
-from xblock.fields import Scope, String, Boolean
+from xblock.fields import Scope, Integer, String, Boolean
 from xblock.fragment import Fragment
 
 
@@ -66,9 +66,29 @@ int main(int argc, char ** argv) {
 """
 
 class CodeXBlock(XBlock):
-    code = String(
-        help="The field stores user code",
+    number = Integer(
+        help="The lab number (this must be unique for the course)",
+        default=0,
+        scope=Scope.content
+    )
+    description = Integer(
+        help="The lab description",
+        default="",
+        scope=Scope.content
+    )
+    questions = String(
+        help="The lab questions",
+        default="",
+        scope=Scope.content
+    )
+    template_code = String(
+        help="The lab template code",
         default=DeviceQueryTemplateCode,
+        scope=Scope.content
+    )
+    code = String(
+        help="The lab code",
+        default="",
         scope=Scope.user_state
     )
     readOnly = Boolean(
@@ -95,6 +115,7 @@ class CodeXBlock(XBlock):
         frag.add_javascript_url("https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/addon/edit/matchbrackets.js")
         frag.add_javascript_url("https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/addon/hint/show-hint.js")
         frag.add_javascript_url("https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/clike/clike.js")
+        # frag.add_javascript(self.resource_string("public/js/cuda-mode.js.min.js"))
         frag.add_javascript(self.resource_string("public/js/cuda-mode.js"))
         return
 
@@ -121,6 +142,8 @@ class CodeXBlock(XBlock):
         A primary view of the CodeXBlock, shown to students
         when viewing courses.
         """
+        if self.code == "":
+            self.code = self.template_code
         html = self.resource_string("public/student_view.html")
         frag = Fragment(html.format(self=self))
         self._add_codemirror_frag(frag)
@@ -143,8 +166,10 @@ class CodeXBlock(XBlock):
         frag = Fragment(html.format(self=self))
         self._add_codemirror_frag(frag)
         frag.add_css(self.resource_string("public/css/studio_view.less.min.css"))
-        frag.add_javascript(self.resource_string("public/js/code.js.min.js"))
-        frag.add_javascript(self.resource_string("public/js/studio.js.min.js"))
+        # frag.add_javascript(self.resource_string("public/js/code.js.min.js"))
+        # frag.add_javascript(self.resource_string("public/js/studio.js.min.js"))
+        frag.add_javascript(self.resource_string("public/js/code.js"))
+        frag.add_javascript(self.resource_string("public/js/studio.js"))
         frag.initialize_js('CodeXBlock', {
             "read_only": self.readOnly
         })

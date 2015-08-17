@@ -1,4 +1,38 @@
-<div class="code_block">
-<p>CodeXBlock: count is now
-</p>
+<div class="wrapper-comp-settings is-active editor-with-buttons" id="settings-tab">
+  <ul class="list-input settings-list">
+    <li class="field comp-setting-entry is-set">
+      <div class="wrapper-comp-setting">
+        <label class="label setting-label" for="lab_number">Lab Number</label>
+        <input class="input setting-input" name="lab_number" id="lab_number" value="{lab_number}" type="text" />
+      </div>
+    </li>
+    <li class="field comp-setting-entry is-set">
+      <div class="wrapper-comp-setting">
+        <label class="label setting-label" for="lab_name">Lab Name</label>
+        <input class="input setting-input" name="lab_name" id="lab_name" value="{lab_name}" type="text" />
+      </div>
+    </li>
+    <li class="field comp-setting-entry is-set">
+      <div class="wrapper-comp-setting">
+        <label class="label setting-label" for="lab_description">Lab Description</label>
+        <textarea class="input setting-input form-control markdown-box" name="lab_description" id="lab_description" value="{lab_description}" type="text" />
+      </div>
+    </li>
+    <li class="field comp-setting-entry is-set">
+      <div class="wrapper-comp-setting">
+        <label class="label setting-label" for="lab_template">Template Source Code</label>
+        <textarea class="input setting-input code-editor form-control" name="lab_template" id="lab_template">{lab_template}</textarea>
+      </div>
+    </li>
+    <li class="field comp-setting-entry is-set">
+      <div class="wrapper-comp-setting">
+        <label class="label setting-label" for="lab_questions">Lab Questions</label>
+        <textarea class="input setting-input form-control markdown-box" name="lab_questions" id="lab_questions" value="{lab_questions}" type="text" />
+      </div>
+    </li>
+  </ul>
+  <div class="row module-actions">
+      <a href="#" class="save-button action-primary action">Save</a>
+      <a href="#" class="cancel-button action-secondary action">Cancel</a>
+  </div>
 </div>
