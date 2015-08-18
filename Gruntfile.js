@@ -18,6 +18,7 @@ module.exports = function(grunt) {
   var directoryPublicCodeMirror = directoryPublic + '/codemirror';
   var directoryPublicCssAll = directoryPublicCss + '/**/*.css';
 
+
   grunt.initConfig({
     pkg : grunt.file.readJSON('package.json'),
     clean : [

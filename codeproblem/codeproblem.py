@@ -90,6 +90,25 @@ class CodeXBlock(XBlock):
         data = pkg_resources.resource_string(__name__, path)
         return data.decode("utf8")
 
+    @XBlock.json_handler
+    def code_save(self, submissions, suffix=''):
+        if not isinstance(submissions, dict):
+            log.error(
+                "submissions object from Studio is not a dict - %r", submissions)
+            return {
+                'response': 'error',
+                'message': 'input is not a dictionary',
+            }
+        try:
+            self.code = submissions["code"]
+        except KeyError as ex:
+            return {
+                'response': 'error',
+                'message': 'code field was not found',
+                'status_code': 400,
+            }
+        return {'response': 'success'}
+
     def _add_codemirror_frag(self, frag):
         # frag.add_css(self.resource_string("public/codemirror/codemirror.css"))
         # frag.add_javascript(self.resource_string("public/codemirror/codemirror.js.min.js"))
@@ -122,29 +141,24 @@ class CodeXBlock(XBlock):
         self._add_codemirror_frag(frag)
         frag.add_css(self.resource_string(
             "public/css/student_view.less.min.css"))
-        #child_frags = self.runtime.render_children(self, context)
-        #frag.add_frags_resources(child_frags)
         if self.code == "":
             self.code = self.template_code
         frag.add_content(html.format(self=self))
         # frag.add_javascript(self.resource_string("public/js/code.js.min.js"))
-        # frag.add_javascript(self.resource_string("public/js/student.js.min.js"))
         frag.add_javascript(self.resource_string("public/js/code.js"))
-        frag.add_javascript(self.resource_string("public/js/student.js"))
-        frag.initialize_js('CodeXBlock', {
-            "read_only": self.readOnly
-        })
+        frag.initialize_js('CodeXBlock')
+        return frag
+    def studio_view(self, context=None):
+        frag = Fragment()
+        html = self.resource_string("public/code_view.html")
         return frag
     @classmethod
     def parse_xml(cls, node, runtime, keys, id_generator):
         block = runtime.construct_xblock_from_class(cls, keys)
-        for child in node:
-            if child.tag == "code":
-                block.template_code += child.text
-            else:
-                block.runtime.add_node_as_child(block, child, id_generator)
-
+        block.template_code = unicode(node.text or u"")
         return block
+
+
 class CodeProblemXBlock(XBlock):
     has_children = True
 
@@ -159,16 +173,6 @@ class CodeProblemXBlock(XBlock):
         scope=Scope.content
     )
 
-    template_code = String(
-        help="The lab template code",
-        default="",
-        scope=Scope.content
-    )
-    code = String(
-        help="The lab code",
-        default="",
-        scope=Scope.user_state
-    )
     description = Integer(
         help="The lab description",
         default="",
@@ -179,92 +183,32 @@ class CodeProblemXBlock(XBlock):
         default="",
         scope=Scope.content
     )
-    readOnly = Boolean(
-        help="Should this code be editable?",
-        default=False,
-        scope=Scope.content
-    )
 
     def resource_string(self, path):
         """Handy helper for getting resources from our kit."""
         data = pkg_resources.resource_string(__name__, path)
         return data.decode("utf8")
 
-    @XBlock.json_handler
-    def code_save(self, submissions, suffix=''):
-        if not isinstance(submissions, dict):
-            log.error(
-                "submissions object from Studio is not a dict - %r", submissions)
-            return {
-                'response': 'error',
-                'message': 'input is not a dictionary',
-            }
-        try:
-            self.code = submissions["code"]
-        except KeyError as ex:
-            return {
-                'response': 'error',
-                'message': 'code field was not found',
-                'status_code': 400,
-            }
-        return {'response': 'success'}
 
     def student_view(self, context=None):
-        """
-        A primary view of the CodeXBlock, shown to students
-        when viewing courses.
-        """
-        frag = Fragment()
-        html = self.resource_string("public/student_view.html")
-        frag.add_css(self.resource_string(
-            "public/css/student_view.less.min.css"))
-        child_frags = self.runtime.render_children(self, context)
-        frag.add_frags_resources(child_frags)
-        if self.code == "":
-            self.code = self.template_code
-        frag.add_content(html.format(self=self))
-        # frag.add_javascript(self.resource_string("public/js/code.js.min.js"))
-        # frag.add_javascript(self.resource_string("public/js/student.js.min.js"))
-        frag.add_javascript(self.resource_string("public/js/code.js"))
-        frag.add_javascript(self.resource_string("public/js/student.js"))
-        frag.initialize_js('CodeXBlock', {
-            "read_only": self.readOnly
-        })
-        return frag
-
-    def xstudent_view(self, context=None):
         """
         A primary view of the CodeXBlock, shown to staff
         when editting the course.
         """
         frag = Fragment()
-        html = self.resource_string("public/studio_view.html")
+        html = self.resource_string("public/student_view.html")
         frag.add_css(self.resource_string(
             "public/css/studio_view.less.min.css"))
         child_frags = self.runtime.render_children(self, context)
-        frag.add_frags_resources(child_frags)
-        if self.code == "":
-            self.code = self.template_code
         frag.add_content(html.format(self=self))
-        # frag.add_javascript(self.resource_string("public/js/code.js.min.js"))
+        for child_frag in child_frags:
+            frag.add_frag_resources(child_frag)
+            frag.add_content(child_frag.content)
         # frag.add_javascript(self.resource_string("public/js/student.js.min.js"))
-        frag.add_javascript(self.resource_string("public/js/code.js"))
-        frag.add_javascript(self.resource_string("public/js/studio.js"))
-        frag.initialize_js('CodeXBlock', {
-            "read_only": self.readOnly
-        })
+        frag.add_javascript(self.resource_string("public/js/student.js"))
+        frag.initialize_js('CodeXBlock')
         return frag
 
-    #@classmethod
-    def xparse_xml(cls, node, runtime, keys, id_generator):
-        block = runtime.construct_xblock_from_class(cls, keys)
-        for child in node:
-            if child.tag == "template_code":
-                block.template_code += child.text
-            else:
-                block.runtime.add_node_as_child(block, child, id_generator)
-
-        return block
 
     @staticmethod
     def workbench_scenarios():
@@ -273,9 +217,9 @@ class CodeProblemXBlock(XBlock):
             ("CodeXBlock",
              """
                 <codeproblem>
-                    <template_code>""" +
+                    <code>""" +
              cgi.escape(DeviceQueryTemplateCode).encode('ascii', 'xmlcharrefreplace') +
-             """</template_code>
+             """</code>
                 </codeproblem>
              """
             ),
