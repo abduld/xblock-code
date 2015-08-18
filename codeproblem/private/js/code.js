@@ -11,9 +11,9 @@ function CodeXBlock(runtime, element, data) {
       var handlerUrl = runtime.handlerUrl(element, 'code_save');
       $.post(handlerUrl, JSON.stringify({
         "code": editor.getValue()
-      })).done(function(response) {
-        if (response.result === 'success') {
-          console.log('Error: ' + response.message);
+      })).done(function(res) {
+        if (res.response != 'success') {
+          console.log('Error: ' + res.message);
         }
       });
     };
@@ -36,7 +36,7 @@ function CodeXBlock(runtime, element, data) {
     window.editor = editor;
     editor.setSize(null, '80%');
 
-    $('.save-code').click(save_code);
+    $('#save-code').click(save_code);
 
   });
 }

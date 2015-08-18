@@ -1,4 +1,4 @@
-var extra_keywords = '__device__ __global__ __host__ __constant__ ' +
+var extra_keywords = ' __device__ __global__ __host__ __constant__ ' +
   '__shared__ __inline__ __align__ __thread__' +
   '__import__ __export__ __location__';
 var extra_types = 'char1 char2 char3 char4 ' +

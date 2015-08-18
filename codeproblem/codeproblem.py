@@ -68,7 +68,6 @@ int main(int argc, char ** argv) {
 
 
 class CodeXBlock(XBlock):
-
     template_code = String(
         help="The lab template code",
         default="",
@@ -148,10 +147,12 @@ class CodeXBlock(XBlock):
         frag.add_javascript(self.resource_string("public/js/code.js"))
         frag.initialize_js('CodeXBlock')
         return frag
+
     def studio_view(self, context=None):
         frag = Fragment()
         html = self.resource_string("public/code_view.html")
         return frag
+
     @classmethod
     def parse_xml(cls, node, runtime, keys, id_generator):
         block = runtime.construct_xblock_from_class(cls, keys)
@@ -196,17 +197,19 @@ class CodeProblemXBlock(XBlock):
         when editting the course.
         """
         frag = Fragment()
-        html = self.resource_string("public/student_view.html")
         frag.add_css(self.resource_string(
-            "public/css/studio_view.less.min.css"))
-        child_frags = self.runtime.render_children(self, context)
-        frag.add_content(html.format(self=self))
-        for child_frag in child_frags:
-            frag.add_frag_resources(child_frag)
-            frag.add_content(child_frag.content)
+                "public/css/studio_view.less.min.css"))
         # frag.add_javascript(self.resource_string("public/js/student.js.min.js"))
         frag.add_javascript(self.resource_string("public/js/student.js"))
-        frag.initialize_js('CodeXBlock')
+
+
+        html = self.resource_string("public/student_view.html")
+        frag.add_content(html.format(self=self))
+        child_frags = self.runtime.render_children(self, context)
+        frag.add_frags_resources(child_frags)
+        for child_frag in child_frags:
+            frag.add_content(child_frag.content)
+        frag.initialize_js('CodeProblemXBlock')
         return frag
 
 
@@ -217,9 +220,9 @@ class CodeProblemXBlock(XBlock):
             ("CodeXBlock",
              """
                 <codeproblem>
-                    <code>""" +
+                    <template_code>""" +
              cgi.escape(DeviceQueryTemplateCode).encode('ascii', 'xmlcharrefreplace') +
-             """</code>
+             """</template_code>
                 </codeproblem>
              """
             ),
