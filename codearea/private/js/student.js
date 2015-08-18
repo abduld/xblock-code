@@ -9,9 +9,11 @@ function CodeXBlock(runtime, element, data) {
     save_code = function() {
 
       var handlerUrl = runtime.handlerUrl(element, 'code_save');
-      $.post(handlerUrl, JSON.stringify({"code": editor.getValue()})).done(function(response) {
+      $.post(handlerUrl, JSON.stringify({
+        "code": editor.getValue()
+      })).done(function(response) {
         if (response.result === 'success') {
-          console.log('Error: '+response.message);
+          console.log('Error: ' + response.message);
         }
       });
     };
@@ -29,13 +31,12 @@ function CodeXBlock(runtime, element, data) {
       extraKeys: {
         'Ctrl-Space': 'autocomplete'
       }
-    }
-  );
+    });
 
-  window.editor = editor;
-  editor.setSize(null, '80%');
+    window.editor = editor;
+    editor.setSize(null, '80%');
 
-  $('.save-code').click(save_code);
+    $('.save-code').click(save_code);
 
-});
+  });
 }

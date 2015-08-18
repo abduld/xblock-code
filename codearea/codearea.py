@@ -1,6 +1,7 @@
 import logging
 import pkg_resources
 import json
+import cgi
 from xblock.core import XBlock
 from xblock.fields import Scope, Integer, String, Boolean
 from xblock.fragment import Fragment
@@ -65,7 +66,10 @@ int main(int argc, char ** argv) {
 }
 """
 
+
 class CodeXBlock(XBlock):
+    has_children = True
+
     number = Integer(
         help="The lab number (this must be unique for the course)",
         default=0,
@@ -83,7 +87,7 @@ class CodeXBlock(XBlock):
     )
     template_code = String(
         help="The lab template code",
-        default=DeviceQueryTemplateCode,
+        default="",
         scope=Scope.content
     )
     code = String(
@@ -105,16 +109,25 @@ class CodeXBlock(XBlock):
     def _add_codemirror_frag(self, frag):
         # frag.add_css(self.resource_string("public/codemirror/codemirror.css"))
         # frag.add_javascript(self.resource_string("public/codemirror/codemirror.js.min.js"))
-        #frag.add_javascript(self.resource_string("public/codemirror/modes/clike.js.min.js"))
-        frag.add_css_url("https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/codemirror.css")
-        frag.add_css_url("https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/addon/hint/show-hint.css")
-        frag.add_css_url("https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/theme/eclipse.css")
-        frag.add_javascript_url("https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/codemirror.js")
-        frag.add_javascript_url("https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js")
-        frag.add_javascript_url("https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/addon/edit/matchbrackets.js")
-        frag.add_javascript_url("https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/addon/edit/matchbrackets.js")
-        frag.add_javascript_url("https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/addon/hint/show-hint.js")
-        frag.add_javascript_url("https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/clike/clike.js")
+        # frag.add_javascript(self.resource_string("public/codemirror/modes/clike.js.min.js"))
+        frag.add_css_url(
+            "https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/codemirror.css")
+        frag.add_css_url(
+            "https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/addon/hint/show-hint.css")
+        frag.add_css_url(
+            "https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/theme/eclipse.css")
+        frag.add_javascript_url(
+            "https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/codemirror.js")
+        frag.add_javascript_url(
+            "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js")
+        frag.add_javascript_url(
+            "https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/addon/edit/matchbrackets.js")
+        frag.add_javascript_url(
+            "https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/addon/edit/matchbrackets.js")
+        frag.add_javascript_url(
+            "https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/addon/hint/show-hint.js")
+        frag.add_javascript_url(
+            "https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/clike/clike.js")
         # frag.add_javascript(self.resource_string("public/js/cuda-mode.js.min.js"))
         frag.add_javascript(self.resource_string("public/js/cuda-mode.js"))
         return
@@ -122,7 +135,8 @@ class CodeXBlock(XBlock):
     @XBlock.json_handler
     def code_save(self, submissions, suffix=''):
         if not isinstance(submissions, dict):
-            log.error("submissions object from Studio is not a dict - %r", submissions)
+            log.error(
+                "submissions object from Studio is not a dict - %r", submissions)
             return {
                 'response': 'error',
                 'message': 'input is not a dictionary',
@@ -142,12 +156,16 @@ class CodeXBlock(XBlock):
         A primary view of the CodeXBlock, shown to students
         when viewing courses.
         """
+        html = self.resource_string("public/student_view.html")
+        frag = Fragment()
+        self._add_codemirror_frag(frag)
+        frag.add_css(self.resource_string(
+            "public/css/student_view.less.min.css"))
+        child_frags = self.runtime.render_children(self, context)
+        frag.add_frags_resources(child_frags)
         if self.code == "":
             self.code = self.template_code
-        html = self.resource_string("public/student_view.html")
-        frag = Fragment(html.format(self=self))
-        self._add_codemirror_frag(frag)
-        frag.add_css(self.resource_string("public/css/student_view.less.min.css"))
+        frag.add_content(html.format(self=self))
         # frag.add_javascript(self.resource_string("public/js/code.js.min.js"))
         # frag.add_javascript(self.resource_string("public/js/student.js.min.js"))
         frag.add_javascript(self.resource_string("public/js/code.js"))
@@ -157,24 +175,18 @@ class CodeXBlock(XBlock):
         })
         return frag
 
-    def studio_view(self, context=None):
-        """
-        A primary view of the CodeXBlock, shown to staff
-        when creating courses.
-        """
-        html = self.resource_string("public/studio_view.html")
-        frag = Fragment(html.format(self=self))
-        self._add_codemirror_frag(frag)
-        frag.add_css(self.resource_string("public/css/studio_view.less.min.css"))
-        # frag.add_javascript(self.resource_string("public/js/code.js.min.js"))
-        # frag.add_javascript(self.resource_string("public/js/studio.js.min.js"))
-        frag.add_javascript(self.resource_string("public/js/code.js"))
-        frag.add_javascript(self.resource_string("public/js/studio.js"))
-        frag.initialize_js('CodeXBlock', {
-            "read_only": self.readOnly
-        })
-        return frag
+    @classmethod
+    def parse_xml(cls, node, runtime, keys, id_generator):
+        block = runtime.construct_xblock_from_class(cls, keys)
 
+        # Find <script> children, turn them into script content.
+        for child in node:
+            if child.tag == "code":
+                block.template_code += child.text
+            else:
+                block.runtime.add_node_as_child(block, child, id_generator)
+
+        return block
 
     @staticmethod
     def workbench_scenarios():
@@ -182,8 +194,11 @@ class CodeXBlock(XBlock):
         return [
             ("CodeXBlock",
              """
-             <vertical_demo>
-             <codearea/>
-             </vertical_demo>
-             """),
+                <codearea>
+                    <code>""" +
+             cgi.escape(DeviceQueryTemplateCode).encode('ascii', 'xmlcharrefreplace') +
+             """</code>
+                </codearea>
+             """
+            ),
         ]
