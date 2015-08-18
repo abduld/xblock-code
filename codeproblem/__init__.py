@@ -1,1 +1,1 @@
-from .codeproblem import CodeXBlock, CodeProblemXBlock
+from .codeproblem import CodeXBlock, CodeProblemXBlock, DescriptionXBlock

@@ -29,10 +29,12 @@ setup(
     ],
     install_requires=[
         'XBlock',
+        'markdown',
     ],
     entry_points={
         'xblock.v1': [
             'code = codeproblem:CodeXBlock',
+            'description = codeproblem:DescriptionXBlock',
             'template_code = codeproblem:CodeXBlock',
             'codeproblem = codeproblem:CodeProblemXBlock',
         ]
