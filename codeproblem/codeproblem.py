@@ -68,23 +68,7 @@ int main(int argc, char ** argv) {
 
 
 class CodeXBlock(XBlock):
-    has_children = True
 
-    number = Integer(
-        help="The lab number (this must be unique for the course)",
-        default=0,
-        scope=Scope.content
-    )
-    description = Integer(
-        help="The lab description",
-        default="",
-        scope=Scope.content
-    )
-    questions = String(
-        help="The lab questions",
-        default="",
-        scope=Scope.content
-    )
     template_code = String(
         help="The lab template code",
         default="",
@@ -132,6 +116,80 @@ class CodeXBlock(XBlock):
         frag.add_javascript(self.resource_string("public/js/cuda-mode.js"))
         return
 
+    def student_view(self, context=None):
+        frag = Fragment()
+        html = self.resource_string("public/code_view.html")
+        self._add_codemirror_frag(frag)
+        frag.add_css(self.resource_string(
+            "public/css/student_view.less.min.css"))
+        #child_frags = self.runtime.render_children(self, context)
+        #frag.add_frags_resources(child_frags)
+        if self.code == "":
+            self.code = self.template_code
+        frag.add_content(html.format(self=self))
+        # frag.add_javascript(self.resource_string("public/js/code.js.min.js"))
+        # frag.add_javascript(self.resource_string("public/js/student.js.min.js"))
+        frag.add_javascript(self.resource_string("public/js/code.js"))
+        frag.add_javascript(self.resource_string("public/js/student.js"))
+        frag.initialize_js('CodeXBlock', {
+            "read_only": self.readOnly
+        })
+        return frag
+    @classmethod
+    def parse_xml(cls, node, runtime, keys, id_generator):
+        block = runtime.construct_xblock_from_class(cls, keys)
+        for child in node:
+            if child.tag == "code":
+                block.template_code += child.text
+            else:
+                block.runtime.add_node_as_child(block, child, id_generator)
+
+        return block
+class CodeProblemXBlock(XBlock):
+    has_children = True
+
+    number = Integer(
+        help="The lab number (this must be unique for the course)",
+        default=0,
+        scope=Scope.content
+    )
+    name = String(
+        help="The lab name",
+        default="",
+        scope=Scope.content
+    )
+
+    template_code = String(
+        help="The lab template code",
+        default="",
+        scope=Scope.content
+    )
+    code = String(
+        help="The lab code",
+        default="",
+        scope=Scope.user_state
+    )
+    description = Integer(
+        help="The lab description",
+        default="",
+        scope=Scope.content
+    )
+    questions = String(
+        help="The lab questions",
+        default="",
+        scope=Scope.content
+    )
+    readOnly = Boolean(
+        help="Should this code be editable?",
+        default=False,
+        scope=Scope.content
+    )
+
+    def resource_string(self, path):
+        """Handy helper for getting resources from our kit."""
+        data = pkg_resources.resource_string(__name__, path)
+        return data.decode("utf8")
+
     @XBlock.json_handler
     def code_save(self, submissions, suffix=''):
         if not isinstance(submissions, dict):
@@ -156,9 +214,8 @@ class CodeXBlock(XBlock):
         A primary view of the CodeXBlock, shown to students
         when viewing courses.
         """
-        html = self.resource_string("public/student_view.html")
         frag = Fragment()
-        self._add_codemirror_frag(frag)
+        html = self.resource_string("public/student_view.html")
         frag.add_css(self.resource_string(
             "public/css/student_view.less.min.css"))
         child_frags = self.runtime.render_children(self, context)
@@ -175,13 +232,34 @@ class CodeXBlock(XBlock):
         })
         return frag
 
-    @classmethod
-    def parse_xml(cls, node, runtime, keys, id_generator):
-        block = runtime.construct_xblock_from_class(cls, keys)
+    def xstudent_view(self, context=None):
+        """
+        A primary view of the CodeXBlock, shown to staff
+        when editting the course.
+        """
+        frag = Fragment()
+        html = self.resource_string("public/studio_view.html")
+        frag.add_css(self.resource_string(
+            "public/css/studio_view.less.min.css"))
+        child_frags = self.runtime.render_children(self, context)
+        frag.add_frags_resources(child_frags)
+        if self.code == "":
+            self.code = self.template_code
+        frag.add_content(html.format(self=self))
+        # frag.add_javascript(self.resource_string("public/js/code.js.min.js"))
+        # frag.add_javascript(self.resource_string("public/js/student.js.min.js"))
+        frag.add_javascript(self.resource_string("public/js/code.js"))
+        frag.add_javascript(self.resource_string("public/js/studio.js"))
+        frag.initialize_js('CodeXBlock', {
+            "read_only": self.readOnly
+        })
+        return frag
 
-        # Find <script> children, turn them into script content.
+    #@classmethod
+    def xparse_xml(cls, node, runtime, keys, id_generator):
+        block = runtime.construct_xblock_from_class(cls, keys)
         for child in node:
-            if child.tag == "code":
+            if child.tag == "template_code":
                 block.template_code += child.text
             else:
                 block.runtime.add_node_as_child(block, child, id_generator)
@@ -194,11 +272,11 @@ class CodeXBlock(XBlock):
         return [
             ("CodeXBlock",
              """
-                <codearea>
-                    <code>""" +
+                <codeproblem>
+                    <template_code>""" +
              cgi.escape(DeviceQueryTemplateCode).encode('ascii', 'xmlcharrefreplace') +
-             """</code>
-                </codearea>
+             """</template_code>
+                </codeproblem>
              """
             ),
         ]

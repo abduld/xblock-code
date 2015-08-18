@@ -3,7 +3,7 @@ module.exports = function(grunt) {
 
   var jshintrc = '.jshintrc';
   var gruntFile = 'Gruntfile.js';
-  var directoryPackage = './codearea';
+  var directoryPackage = './codeproblem';
   var directoryPrivate = directoryPackage + '/private';
   var directoryCodeMirror = directoryPackage + '/codemirror';
   var directoryPublic = directoryPackage + '/public';
@@ -63,6 +63,12 @@ module.exports = function(grunt) {
           directoryCodeMirror + '/codemirror.css',
         ],
         dest : directoryPublicCodeMirror + '/codemirror.css',
+      },
+      cssCode : {
+        src : [
+          directoryPrivateCss + '/code_view.less',
+        ],
+        dest : directoryPublicCss + '/code_view.less',
       },
       cssStudent : {
         src : [
@@ -133,11 +139,13 @@ module.exports = function(grunt) {
           removeEmptyAttributes : true,
         },
         files : {
-          'codearea/public/student_view.html' :
+          'codeproblem/public/code_view.html' :
+              directoryPrivate + '/html/code_view.html',
+          'codeproblem/public/student_view.html' :
               directoryPrivate + '/html/student_view.html',
-          'codearea/public/studio_view.html' :
+          'codeproblem/public/studio_view.html' :
               directoryPrivate + '/html/studio_view.html',
-          'codearea/public/workbench_view.html' :
+          'codeproblem/public/workbench_view.html' :
               directoryPrivate + '/html/workbench_view.html',
         },
       },
@@ -162,7 +170,7 @@ module.exports = function(grunt) {
           compress : true,
         },
         files : {
-          'codearea/public/css/student_view.less.min.css' :
+          'codeproblem/public/css/student_view.less.min.css' :
               directoryPublicCss + '/student_view.less',
         },
       },
@@ -176,7 +184,7 @@ module.exports = function(grunt) {
           compress : true,
         },
         files : {
-          'codearea/public/css/studio_view.less.min.css' :
+          'codeproblem/public/css/studio_view.less.min.css' :
               directoryPublicCss + '/studio_view.less',
         },
       },

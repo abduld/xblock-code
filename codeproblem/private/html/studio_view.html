@@ -1,0 +1,38 @@
+<div class="wrapper-comp-settings is-active editor-with-buttons" id="settings-tab">
+  <ul class="list-input settings-list">
+    <li class="field comp-setting-entry is-set">
+      <div class="wrapper-comp-setting">
+        <label class="label setting-label" for="number">Lab Number</label>
+        <input class="input setting-input" name="number" id="number" value="{self.number}" type="text" />
+      </div>
+    </li>
+    <li class="field comp-setting-entry is-set">
+      <div class="wrapper-comp-setting">
+        <label class="label setting-label" for="name">Lab Name</label>
+        <input class="input setting-input" name="name" id="name" value="{self.name}" type="text" />
+      </div>
+    </li>
+    <li class="field comp-setting-entry is-set">
+      <div class="wrapper-comp-setting">
+        <label class="label setting-label" for="description">Lab Description</label>
+        <textarea class="input setting-input form-control markdown-box" name="description" id="description" value="{self.description}" type="text" />
+      </div>
+    </li>
+    <li class="field comp-setting-entry is-set">
+      <div class="wrapper-comp-setting">
+        <label class="label setting-label" for="template_code">Template Source Code</label>
+        <textarea class="input setting-input code-editor form-control" name="template_code" id="template_code">{self.template_code}</textarea>
+      </div>
+    </li>
+    <li class="field comp-setting-entry is-set">
+      <div class="wrapper-comp-setting">
+        <label class="label setting-label" for="questions">Lab Questions</label>
+        <textarea class="input setting-input form-control markdown-box" name="questions" id="questions" value="{self.questions}" type="text" />
+      </div>
+    </li>
+  </ul>
+  <div class="row module-actions">
+    <a href="#" class="save-button action-primary action">Save</a>
+    <a href="#" class="cancel-button action-secondary action">Cancel</a>
+  </div>
+</div>
