@@ -1,4 +1,6 @@
 # CodeXBlock
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/abduld/xblock-code.svg)](https://greenkeeper.io/)
 Source code text area xblock
 
 ## TODO List:
